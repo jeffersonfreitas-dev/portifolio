@@ -13,6 +13,9 @@ module.exports = {
         "jeff-gray-1": "#DADCE0",
         "jeff-green-1": "#2E8B57",
       },
+      boxShadow: {
+        white: "0 0 3px 3px #FFFFFF",
+      },
     },
   },
   plugins: [],

@@ -23,6 +23,10 @@
               </li>
             </ul>
           </nav>
+          <div class="ml-auto flex h-full items-center">
+            <profile-image v-if="isLoggedIn" v-on:click="logoutUser" />
+            <action-button v-else v-on:click="loginUser" />
+          </div>
         </div>
       </div>
     </div>
@@ -30,14 +34,30 @@
 </template>
 
 <script>
+import ActionButton from "@/components/ActionButton.vue";
+import ProfileImage from "@/components/ProfileImage.vue";
+
 export default {
   name: "MainNav",
+  components: {
+    ActionButton,
+    ProfileImage,
+  },
   data() {
     return {
       company: "Jefferson Freitas",
       url: "https://jeffersonfreitas-dev.github.io",
       menuItens: ["Sobre", "Projetos", "Contato", "Blog"],
+      isLoggedIn: false,
     };
+  },
+  methods: {
+    loginUser() {
+      this.isLoggedIn = true;
+    },
+    logoutUser() {
+      this.isLoggedIn = false;
+    },
   },
 };
 </script>
